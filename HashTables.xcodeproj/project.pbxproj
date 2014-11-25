@@ -9,17 +9,24 @@
 /* Begin PBXBuildFile section */
 		6512CDF61A250C57007447F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6512CDF51A250C57007447F8 /* main.m */; };
 		6512CE011A250D03007447F8 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6512CDFD1A250D03007447F8 /* Person.m */; };
+		6512CE041A251338007447F8 /* HashTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6512CE031A251338007447F8 /* HashTable.m */; };
+		6512CE051A251A51007447F8 /* firstnames.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6512CDFF1A250D03007447F8 /* firstnames.txt */; };
+		6512CE061A251A51007447F8 /* lastnames.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6512CE001A250D03007447F8 /* lastnames.txt */; };
+		6512CE0C1A251E0E007447F8 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6512CE091A251E0E007447F8 /* LinkedList.m */; };
+		6512CE0D1A251E0E007447F8 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 6512CE0B1A251E0E007447F8 /* Node.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6512CDF01A250C57007447F8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				6512CE051A251A51007447F8 /* firstnames.txt in CopyFiles */,
+				6512CE061A251A51007447F8 /* lastnames.txt in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -30,6 +37,12 @@
 		6512CDFD1A250D03007447F8 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		6512CDFF1A250D03007447F8 /* firstnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = firstnames.txt; sourceTree = "<group>"; };
 		6512CE001A250D03007447F8 /* lastnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lastnames.txt; sourceTree = "<group>"; };
+		6512CE021A251338007447F8 /* HashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTable.h; sourceTree = "<group>"; };
+		6512CE031A251338007447F8 /* HashTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashTable.m; sourceTree = "<group>"; };
+		6512CE081A251E0E007447F8 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
+		6512CE091A251E0E007447F8 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedList.m; sourceTree = "<group>"; };
+		6512CE0A1A251E0E007447F8 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		6512CE0B1A251E0E007447F8 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +78,9 @@
 				6512CDF51A250C57007447F8 /* main.m */,
 				6512CDFC1A250D03007447F8 /* Person.h */,
 				6512CDFD1A250D03007447F8 /* Person.m */,
+				6512CE021A251338007447F8 /* HashTable.h */,
+				6512CE031A251338007447F8 /* HashTable.m */,
+				6512CE071A251DEE007447F8 /* LinkedList */,
 				6512CDFE1A250D03007447F8 /* resources */,
 			);
 			path = HashTables;
@@ -77,6 +93,17 @@
 				6512CE001A250D03007447F8 /* lastnames.txt */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		6512CE071A251DEE007447F8 /* LinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				6512CE0A1A251E0E007447F8 /* Node.h */,
+				6512CE0B1A251E0E007447F8 /* Node.m */,
+				6512CE081A251E0E007447F8 /* LinkedList.h */,
+				6512CE091A251E0E007447F8 /* LinkedList.m */,
+			);
+			name = LinkedList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6512CE0D1A251E0E007447F8 /* Node.m in Sources */,
+				6512CE041A251338007447F8 /* HashTable.m in Sources */,
 				6512CE011A250D03007447F8 /* Person.m in Sources */,
+				6512CE0C1A251E0E007447F8 /* LinkedList.m in Sources */,
 				6512CDF61A250C57007447F8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
