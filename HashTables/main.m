@@ -12,7 +12,7 @@
 
 extern uint64_t dispatch_benchmark(size_t count, void (^block)(void));
 
-static const NSInteger kPersonCount = 1000;
+static const NSInteger kPersonCount = 10000;
 
 int main(int argc, const char * argv[])
 {
@@ -40,7 +40,7 @@ int main(int argc, const char * argv[])
             for (NSInteger i = 0; i < kPersonCount; i++)
             {
                 Person* person = persons[i];
-                NSString* key = [NSString stringWithFormat:@"%@%@", person.lastName, person.firstName];
+                NSString* key = [NSString stringWithFormat:@"%@%@%ld", person.lastName, person.firstName, (long)person.age];
                 [hashTable setObject:person forKey:key];
             }
         });
@@ -55,21 +55,36 @@ int main(int argc, const char * argv[])
         }
         
         // Check the hashtable content, benchmark the speed
+        
+        __block BOOL retreivalSuccessfull = YES;
+        
         uint64_t retrievalTime = dispatch_benchmark(1, ^
         {
             for (NSInteger i = 0; i < kPersonCount; i++)
             {
                 Person* person = persons[i];
-                NSString* key = [NSString stringWithFormat:@"%@%@", person.lastName, person.firstName];
+                NSString* key = [NSString stringWithFormat:@"%@%@%ld", person.lastName, person.firstName, (long)person.age];
                 
                 Person* retrievedPerson = (Person*) [hashTable objectForKey:key];
                 
                 if (person != retrievedPerson)
                 {
                     NSLog(@"ERROR: Retrieved person doesn't match the expected result!");
+                    retreivalSuccessfull = NO;
+                    break;
                 }
             }
         });
+        
+        if (retreivalSuccessfull)
+        {
+            NSLog(@"Successfully retrieved objects from hash table in %llu ms", retrievalTime / 1000000);
+        }
+        else
+        {
+            return 1;
+        }
+        
 
     }
     

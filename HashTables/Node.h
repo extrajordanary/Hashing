@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) Node* next;
 @property (nonatomic, strong) id data;
+@property (nonatomic, copy) NSString* key;
 
 @end

@@ -14,7 +14,14 @@
 //          Implement these Methods!
 // -------------------------------------------
 
+/**
+ Adds an object to the hash table for the given key
+ */
 - (void)setObject:(id)object forKey:(NSString*)key;
+
+/**
+ Retrieves an object from the hash table for the given key
+ */
 
 - (id)objectForKey:(NSString*)key;
 
