@@ -24,5 +24,6 @@
  */
 
 - (id)objectForKey:(NSString*)key;
+- (void)removeObjectForKey:(NSString*)key;
 
 @end

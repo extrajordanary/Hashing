@@ -85,6 +85,46 @@ int main(int argc, const char * argv[])
             return 1;
         }
         
+        // test removeObjectForKey:
+        if (! [hashTable respondsToSelector:@selector(removeObjectForKey:)])
+        {
+            NSLog(@"ERROR: You must implement removeObjectForKey: in HashTable.m!");
+            return 1;
+        }
+        
+        // Check the hashtable content, benchmark the speed
+        
+        __block BOOL removalSuccessfull = YES;
+        
+        uint64_t removalTime = dispatch_benchmark(1, ^
+                                                    {
+                                                        for (NSInteger i = 0; i < kPersonCount; i++)
+                                                        {
+                                                            Person* person = persons[i];
+                                                            NSString* key = [NSString stringWithFormat:@"%@%@%ld", person.lastName, person.firstName, (long)person.age];
+                                                            
+                                                            [hashTable removeObjectForKey:key];
+                                                            // see if the object was correctly removed
+                                                            Person* removedPerson = (Person*) [hashTable objectForKey:key];
+                                                            
+                                                            if (removedPerson)
+                                                            {
+                                                                NSLog(@"ERROR: Person not correctly removed from hash table!");
+                                                                
+                                                                removalSuccessfull = NO;
+                                                                break;
+                                                            }
+                                                        }
+                                                    });
+        
+        if (removalSuccessfull)
+        {
+            NSLog(@"Successfully removed objects from hash table in %llu ms", removalTime / 1000000);
+        }
+        else
+        {
+            return 1;
+        }
 
     }
     
